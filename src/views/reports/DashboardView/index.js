@@ -4,6 +4,7 @@ import {
   Grid,
   makeStyles
 } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 import Page from 'src/components/Page';
 import Budget from './Budget';
 import LatestOrders from './LatestOrders';
@@ -43,7 +44,7 @@ const Dashboard = () => {
             xl={3}
             xs={12}
           >
-            <Budget />
+            <Link to="academic"><Budget /></Link>
           </Grid>
           <Grid
             item
