@@ -49,7 +49,7 @@ const TotalProfit = ({ className, ...rest }) => {
               color="textPrimary"
               variant="h3"
             >
-              345
+              1,523
             </Typography>
           </Grid>
           <Grid item>

@@ -51,7 +51,7 @@ const TasksProgress = ({ className, ...rest }) => {
               color="textPrimary"
               variant="h3"
             >
-              75.5%
+              715
             </Typography>
           </Grid>
           <Grid item>

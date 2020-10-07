@@ -58,7 +58,7 @@ const Budget = ({ className, ...rest }) => {
               color="textPrimary"
               variant="h3"
             >
-              12,000
+              1,500
             </Typography>
           </Grid>
           <Grid item>

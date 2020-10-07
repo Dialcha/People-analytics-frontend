@@ -34,7 +34,7 @@ const Toolbar = ({ className, ...rest }) => {
               gutterBottom
               variant="h1"
             >
-              FACTORES ACADÉMICOS
+              Factores Académicos
             </Typography>
           </CardContent>
         </Card>
