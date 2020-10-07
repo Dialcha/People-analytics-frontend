@@ -68,7 +68,7 @@ const TrafficByDevice = ({ className, ...rest }) => {
 
   const devices = [
     {
-      title: 'Desktop',
+      title: 'Intervenidos',
       value: 63,
       icon: LaptopMacIcon,
       color: colors.indigo[500]

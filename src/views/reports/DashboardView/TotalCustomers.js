@@ -52,7 +52,7 @@ const TotalCustomers = ({ className, ...rest }) => {
               gutterBottom
               variant="h6"
             >
-              TOTAL CUSTOMERS
+              PSICOEMOCIONAL
             </Typography>
             <Typography
               color="textPrimary"
