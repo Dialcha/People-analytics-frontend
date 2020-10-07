@@ -28,60 +28,60 @@ const data = [
     ref: 'CDD1049',
     amount: 30.5,
     customer: {
-      name: 'Ekaterina Tankova'
+      name: 'Juana Martinez'
     },
     createdAt: 1555016400000,
-    status: 'pending'
+    status: 'riesgo académico'
   },
   {
     id: uuid(),
     ref: 'CDD1048',
     amount: 25.1,
     customer: {
-      name: 'Cao Yu'
+      name: 'Gabriel Ramirez'
     },
     createdAt: 1555016400000,
-    status: 'delivered'
+    status: 'psicoemocional'
   },
   {
     id: uuid(),
     ref: 'CDD1047',
     amount: 10.99,
     customer: {
-      name: 'Alexa Richardson'
+      name: 'Alexandra Lopez'
     },
     createdAt: 1554930000000,
-    status: 'refunded'
+    status: 'riesgo economico'
   },
   {
     id: uuid(),
     ref: 'CDD1046',
     amount: 96.43,
     customer: {
-      name: 'Anje Keizer'
+      name: 'Daniel Perez'
     },
     createdAt: 1554757200000,
-    status: 'pending'
+    status: 'riesgo economico'
   },
   {
     id: uuid(),
     ref: 'CDD1045',
     amount: 32.54,
     customer: {
-      name: 'Clarke Gillebert'
+      name: 'Gilberto Tobon'
     },
     createdAt: 1554670800000,
-    status: 'delivered'
+    status: 'seguimiento'
   },
   {
     id: uuid(),
     ref: 'CDD1044',
     amount: 16.76,
     customer: {
-      name: 'Adam Denisov'
+      name: 'Adrian Cano'
     },
     createdAt: 1554670800000,
-    status: 'delivered'
+    status: 'seguimiento'
   }
 ];
 
@@ -101,7 +101,7 @@ const LatestOrders = ({ className, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <CardHeader title="Latest Orders" />
+      <CardHeader title="Mis Ultimos Casos" />
       <Divider />
       <PerfectScrollbar>
         <Box minWidth={800}>
@@ -109,10 +109,10 @@ const LatestOrders = ({ className, ...rest }) => {
             <TableHead>
               <TableRow>
                 <TableCell>
-                  Order Ref
+                  ID Estudiante
                 </TableCell>
                 <TableCell>
-                  Customer
+                  Nombre
                 </TableCell>
                 <TableCell sortDirection="desc">
                   <Tooltip
@@ -123,12 +123,12 @@ const LatestOrders = ({ className, ...rest }) => {
                       active
                       direction="desc"
                     >
-                      Date
+                      Ultimo contacto
                     </TableSortLabel>
                   </Tooltip>
                 </TableCell>
                 <TableCell>
-                  Status
+                  Estado
                 </TableCell>
               </TableRow>
             </TableHead>

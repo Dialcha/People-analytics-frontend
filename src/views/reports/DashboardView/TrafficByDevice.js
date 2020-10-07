@@ -13,9 +13,9 @@ import {
   makeStyles,
   useTheme
 } from '@material-ui/core';
-import LaptopMacIcon from '@material-ui/icons/LaptopMac';
-import PhoneIcon from '@material-ui/icons/Phone';
-import TabletIcon from '@material-ui/icons/Tablet';
+import LaptopMacIcon from '@material-ui/icons/CheckCircleOutline';
+import PhoneIcon from '@material-ui/icons/NotificationsNone';
+import TabletIcon from '@material-ui/icons/Warning';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -41,7 +41,7 @@ const TrafficByDevice = ({ className, ...rest }) => {
         hoverBorderColor: colors.common.white
       }
     ],
-    labels: ['Desktop', 'Tablet', 'Mobile']
+    labels: ['Ok', 'Atencion', 'Riesgo']
   };
 
   const options = {
@@ -68,23 +68,24 @@ const TrafficByDevice = ({ className, ...rest }) => {
 
   const devices = [
     {
-      title: 'Intervenidos',
+      title: 'Buen Desempeño',
       value: 63,
       icon: LaptopMacIcon,
       color: colors.indigo[500]
     },
     {
-      title: 'Tablet',
-      value: 15,
-      icon: TabletIcon,
-      color: colors.red[600]
-    },
-    {
-      title: 'Mobile',
+      title: 'En Alerta Predictiva',
       value: 23,
       icon: PhoneIcon,
       color: colors.orange[600]
+    },
+    {
+      title: 'En Alerta Latente',
+      value: 15,
+      icon: TabletIcon,
+      color: colors.red[600]
     }
+
   ];
 
   return (
@@ -92,7 +93,7 @@ const TrafficByDevice = ({ className, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <CardHeader title="Traffic by Device" />
+      <CardHeader title="Riesgo de Deserción" />
       <Divider />
       <CardContent>
         <Box
