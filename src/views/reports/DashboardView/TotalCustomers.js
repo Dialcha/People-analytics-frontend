@@ -83,7 +83,7 @@ const TotalCustomers = ({ className, ...rest }) => {
             color="textSecondary"
             variant="caption"
           >
-            Since last month
+            Desde el mes pasado
           </Typography>
         </Box>
       </CardContent>
