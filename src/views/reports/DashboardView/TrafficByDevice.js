@@ -30,7 +30,7 @@ const TrafficByDevice = ({ className, ...rest }) => {
   const data = {
     datasets: [
       {
-        data: [63, 15, 22],
+        data: [30, 60, 10],
         backgroundColor: [
           colors.indigo[500],
           colors.red[600],
@@ -69,19 +69,19 @@ const TrafficByDevice = ({ className, ...rest }) => {
   const devices = [
     {
       title: 'Buen Desempeño',
-      value: 63,
+      value: 20,
       icon: LaptopMacIcon,
       color: colors.indigo[500]
     },
     {
       title: 'En Alerta Predictiva',
-      value: 22,
+      value: 10,
       icon: PhoneIcon,
       color: colors.orange[600]
     },
     {
       title: 'En Alerta Latente',
-      value: 15,
+      value: 60,
       icon: TabletIcon,
       color: colors.red[600]
     }

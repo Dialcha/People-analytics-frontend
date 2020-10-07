@@ -89,7 +89,7 @@ const GraficaMaterias = ({ className, ...rest }) => {
             2020-2
           </Button>
         )}
-        title="Evolución de riesgo x nivel semestre actual"
+        title="Evolución riesgo x nivel académico"
       />
       <Divider />
       <CardContent>
