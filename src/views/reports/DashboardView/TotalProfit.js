@@ -43,7 +43,7 @@ const TotalProfit = ({ className, ...rest }) => {
               gutterBottom
               variant="h6"
             >
-              TOTAL PROFIT
+              TOTAL ESTUDIANTES INTERVENIDOS
             </Typography>
             <Typography
               color="textPrimary"

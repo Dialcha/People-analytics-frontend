@@ -45,7 +45,7 @@ const TasksProgress = ({ className, ...rest }) => {
               gutterBottom
               variant="h6"
             >
-              TASKS PROGRESS
+              SOCIOECONÓMICO
             </Typography>
             <Typography
               color="textPrimary"
