@@ -14,6 +14,8 @@ import TasksProgress from './TasksProgress';
 import TotalCustomers from './TotalCustomers';
 import TotalProfit from './TotalProfit';
 import TrafficByDevice from './TrafficByDevice';
+import DescriptionAlerts from './alerta';
+import Toolbar from './ToolbarDas';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,6 +39,21 @@ const Dashboard = () => {
           container
           spacing={3}
         >
+          
+          <Grid
+            item
+            lg={12}
+            md={12}
+            xl={9}
+            xs={12}
+          >
+            <DescriptionAlerts />
+          </Grid>
+
+          <Container maxWidth={false}>
+            <Toolbar />
+          </Container>
+
           <Grid
             item
             lg={3}

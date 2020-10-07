@@ -85,7 +85,7 @@ const ProductCard = ({ className, product, ...rest }) => {
               display="inline"
               variant="body2"
             >
-              Updated 2hr ago
+              Duración 2hr
             </Typography>
           </Grid>
           <Grid
@@ -103,7 +103,7 @@ const ProductCard = ({ className, product, ...rest }) => {
             >
               {product.totalDownloads}
               {' '}
-              Downloads
+              Inscritos
             </Typography>
           </Grid>
         </Grid>

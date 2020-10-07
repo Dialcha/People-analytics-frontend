@@ -10,13 +10,10 @@ import {
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {},
-  importButton: {
-    marginRight: theme.spacing(1)
-  },
-  exportButton: {
-    marginRight: theme.spacing(1)
+  actions: {
+    justifyContent: 'flex-end'
   }
 }));
 
@@ -32,9 +29,9 @@ const Toolbar = ({ className, ...rest }) => {
             <Typography
               color="textPrimary"
               gutterBottom
-              variant="h1"
+              variant="h2"
             >
-              Factores Académicos
+              Factores que están Influyendo en la deserción estudiantil
             </Typography>
           </CardContent>
         </Card>
