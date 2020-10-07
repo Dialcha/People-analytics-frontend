@@ -10,7 +10,7 @@ import {
   makeStyles,
   colors
 } from '@material-ui/core';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import AssistantPhoto from '@material-ui/icons/AssistantPhoto';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -54,7 +54,7 @@ const TotalProfit = ({ className, ...rest }) => {
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>
-              <AttachMoneyIcon />
+              <AssistantPhoto/>
             </Avatar>
           </Grid>
         </Grid>
