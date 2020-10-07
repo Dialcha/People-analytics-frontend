@@ -12,7 +12,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage" : "http://Dialcha.github.io/People-analytics-frontend",
+  "homepage" : "https://Dialcha.github.io/People-analytics-frontend",
   "eslintConfig": {
     "extends": "react-app"
   },
