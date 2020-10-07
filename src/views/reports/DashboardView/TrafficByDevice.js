@@ -75,7 +75,7 @@ const TrafficByDevice = ({ className, ...rest }) => {
     },
     {
       title: 'En Alerta Predictiva',
-      value: 23,
+      value: 22,
       icon: PhoneIcon,
       color: colors.orange[600]
     },

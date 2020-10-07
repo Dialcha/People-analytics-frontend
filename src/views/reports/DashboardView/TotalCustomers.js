@@ -58,7 +58,7 @@ const TotalCustomers = ({ className, ...rest }) => {
               color="textPrimary"
               variant="h3"
             >
-              1,600
+              410
             </Typography>
           </Grid>
           <Grid item>

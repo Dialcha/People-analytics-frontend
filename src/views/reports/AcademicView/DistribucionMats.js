@@ -16,6 +16,9 @@ import {
 import LaptopMacIcon from '@material-ui/icons/CheckCircleOutline';
 import PhoneIcon from '@material-ui/icons/NotificationsNone';
 import TabletIcon from '@material-ui/icons/Warning';
+import FunctionsIcon from '@material-ui/icons/Functions';
+import ComputerIcon from '@material-ui/icons/Computer';
+import DeviceHubIcon from '@material-ui/icons/DeviceHub';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -68,22 +71,22 @@ const DistribucionMats = ({ className, ...rest }) => {
 
   const devices = [
     {
-      title: 'Buen Desempeño',
-      value: 63,
-      icon: LaptopMacIcon,
-      color: colors.indigo[500]
+      title: 'Ciencia Basica',
+      value: 60,
+      icon: FunctionsIcon,
+      color: colors.indigo[600]
     },
     {
-      title: 'En Alerta Predictiva',
-      value: 23,
-      icon: PhoneIcon,
+      title: 'Algoritmia',
+      value: 30,
+      icon: ComputerIcon,
       color: colors.orange[600]
     },
     {
-      title: 'En Alerta Latente',
-      value: 15,
-      icon: TabletIcon,
-      color: colors.red[600]
+      title: 'Optativas',
+      value: 10,
+      icon: DeviceHubIcon,
+      color: colors.red[500]
     }
 
   ];
@@ -93,7 +96,7 @@ const DistribucionMats = ({ className, ...rest }) => {
       className={clsx(classes.root, className)}
       {...rest}
     >
-      <CardHeader title="Riesgo de Deserción" />
+      <CardHeader title="Lineas de Mayor Riesgo" />
       <Divider />
       <CardContent>
         <Box
