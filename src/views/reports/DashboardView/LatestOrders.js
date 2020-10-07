@@ -30,7 +30,7 @@ const data = [
     customer: {
       name: 'Juana Martinez'
     },
-    createdAt: 1555016400000,
+    createdAt: 1602038931000 ,
     status: 'riesgo académico'
   },
   {
@@ -40,7 +40,7 @@ const data = [
     customer: {
       name: 'Gabriel Ramirez'
     },
-    createdAt: 1555016400000,
+    createdAt: 1602038931000,
     status: 'psicoemocional'
   },
   {
@@ -50,7 +50,7 @@ const data = [
     customer: {
       name: 'Alexandra Lopez'
     },
-    createdAt: 1554930000000,
+    createdAt: 1601025931000,
     status: 'riesgo economico'
   },
   {
@@ -60,7 +60,7 @@ const data = [
     customer: {
       name: 'Daniel Perez'
     },
-    createdAt: 1554757200000,
+    createdAt: 1600925931000,
     status: 'riesgo economico'
   },
   {
@@ -70,7 +70,7 @@ const data = [
     customer: {
       name: 'Gilberto Tobon'
     },
-    createdAt: 1554670800000,
+    createdAt: 1600925931000,
     status: 'seguimiento'
   },
   {
@@ -80,7 +80,7 @@ const data = [
     customer: {
       name: 'Adrian Cano'
     },
-    createdAt: 1554670800000,
+    createdAt: 1600825931000,
     status: 'seguimiento'
   }
 ];
@@ -171,7 +171,7 @@ const LatestOrders = ({ className, ...rest }) => {
           size="small"
           variant="text"
         >
-          View all
+          Ver Todos
         </Button>
       </Box>
     </Card>
