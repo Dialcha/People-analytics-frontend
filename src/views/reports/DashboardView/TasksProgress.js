@@ -13,8 +13,10 @@ import {
   colors
 } from '@material-ui/core';
 import InsertChartIcon from '@material-ui/icons/InsertChartOutlined';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
-const useStyles = makeStyles(() => ({
+
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%'
   },
@@ -22,6 +24,13 @@ const useStyles = makeStyles(() => ({
     backgroundColor: colors.orange[600],
     height: 56,
     width: 56
+  },
+  differenceIcon: {
+    color: colors.green[900]
+  },
+  differenceValue: {
+    color: colors.green[900],
+    marginRight: theme.spacing(1)
   }
 }));
 
@@ -60,11 +69,24 @@ const TasksProgress = ({ className, ...rest }) => {
             </Avatar>
           </Grid>
         </Grid>
-        <Box mt={3}>
-          <LinearProgress
-            value={75.5}
-            variant="determinate"
-          />
+        <Box
+          mt={2}
+          display="flex"
+          alignItems="center"
+        >
+          <ArrowUpwardIcon className={classes.differenceIcon} />
+          <Typography
+            className={classes.differenceValue}
+            variant="body2"
+          >
+            5%
+          </Typography>
+          <Typography
+            color="textSecondary"
+            variant="caption"
+          >
+            Desde el mes pasado
+          </Typography>
         </Box>
       </CardContent>
     </Card>

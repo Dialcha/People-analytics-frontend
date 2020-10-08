@@ -46,21 +46,21 @@ const items = [
     icon: ShoppingBagIcon,
     title: 'Estrategias'
   },
-  {
-    href: '/app/account',
-    icon: UserIcon,
-    title: 'Detalle Perfil'
-  },
+  // {
+  //   href: '/app/account',
+  //   icon: UserIcon,
+  //   title: 'Detalle Perfil'
+  // },
   // {
   //   href: '/app/settings',
   //   icon: SettingsIcon,
   //   title: 'Settings'
   // },
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login'
-  },
+  // {
+  //   href: '/login',
+  //   icon: LockIcon,
+  //   title: 'Login'
+  // },
   // {
   //   href: '/register',
   //   icon: UserPlusIcon,

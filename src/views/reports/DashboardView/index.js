@@ -90,15 +90,7 @@ const Dashboard = () => {
           >
             <TotalProfit />
           </Grid>
-          <Grid
-            item
-            lg={8}
-            md={12}
-            xl={9}
-            xs={12}
-          >
-            <Sales />
-          </Grid>
+
           <Grid
             item
             lg={4}

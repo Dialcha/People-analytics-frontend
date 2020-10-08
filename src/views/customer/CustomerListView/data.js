@@ -4,141 +4,141 @@ export default [
   {
     id: uuid(),
     address: {
-      country: 'USA',
-      state: 'West Virginia',
-      city: 'Parkersburg',
-      street: '2849 Fulton Street'
+      country: 'Pres',
+      state: '2019-1',
+      city: 'Ing de Sistemas',
+      street: ''
     },
     avatarUrl: '/static/images/avatars/avatar_3.png',
     createdAt: 1555016400000,
-    email: 'ekaterina.tankova@devias.io',
-    name: 'Ekaterina Tankova',
+    email: 'cam.esc@univalle.edu.co',
+    name: 'Camilo Escobar',
     phone: '304-428-3097'
   },
   {
     id: uuid(),
     address: {
-      country: 'USA',
-      state: 'Bristow',
-      city: 'Iowa',
-      street: '1865  Pleasant Hill Road'
+      country: 'Pres',
+      state: '2019-1',
+      city: 'Ing de Sistemas',
+      street: ''
     },
     avatarUrl: '/static/images/avatars/avatar_4.png',
     createdAt: 1555016400000,
-    email: 'cao.yu@devias.io',
-    name: 'Cao Yu',
-    phone: '712-351-5711'
+    email: 'ca.y@univalle.edu.co',
+    name: 'Carlos Yepes',
+    phone: '302-351-5711'
   },
   {
     id: uuid(),
     address: {
-      country: 'USA',
-      state: 'Georgia',
-      city: 'Atlanta',
-      street: '4894  Lakeland Park Drive'
+      country: 'Pres',
+      state: '2018-1',
+      city: 'Economia',
+      street: ''
     },
     avatarUrl: '/static/images/avatars/avatar_2.png',
-    createdAt: 1555016400000,
-    email: 'alexa.richardson@devias.io',
-    name: 'Alexa Richardson',
-    phone: '770-635-2682'
+    createdAt: 1554930000000,
+    email: 'gavmar@univalle.edu.co',
+    name: 'Gabriela Martinez',
+    phone: '301-691-3242'
   },
   {
     id: uuid(),
     address: {
-      country: 'USA',
-      state: 'Ohio',
-      city: 'Dover',
-      street: '4158  Hedge Street'
+      country: 'Virt',
+      state: '2017-2',
+      city: 'Ing de Sistemas',
+      street: ''
     },
     avatarUrl: '/static/images/avatars/avatar_5.png',
     createdAt: 1554930000000,
-    email: 'anje.keizer@devias.io',
-    name: 'Anje Keizer',
-    phone: '908-691-3242'
+    email: 'anacastro@univalle.edu.co',
+    name: 'Ana Castro',
+    phone: '300-691-3242'
   },
   {
     id: uuid(),
     address: {
-      country: 'USA',
-      state: 'Texas',
-      city: 'Dallas',
-      street: '75247'
+      country: 'Virt',
+      state: '2016-1',
+      city: 'Ing de Sistemas',
+      street: ''
     },
-    avatarUrl: '/static/images/avatars/avatar_6.png',
+    avatarUrl: '',
     createdAt: 1554757200000,
-    email: 'clarke.gillebert@devias.io',
-    name: 'Clarke Gillebert',
-    phone: '972-333-4106'
+    email: 'cla.g@univalle.edu.co',
+    name: 'Claudio Gonzales',
+    phone: '302-333-4106'
   },
   {
     id: uuid(),
     address: {
-      country: 'USA',
-      state: 'California',
-      city: 'Bakerfield',
-      street: '317 Angus Road'
+      country: 'Pres',
+      state: '2018-1',
+      city: 'Ing de Sistemas',
+      street: ''
     },
     avatarUrl: '/static/images/avatars/avatar_1.png',
     createdAt: 1554670800000,
-    email: 'adam.denisov@devias.io',
-    name: 'Adam Denisov',
-    phone: '858-602-3409'
+    email: 'ad.duran@univalle.edu.co',
+    name: 'Adrian Duran',
+    phone: '301-602-3409'
   },
   {
     id: uuid(),
     address: {
-      country: 'USA',
-      state: 'California',
-      city: 'Redondo Beach',
-      street: '2188  Armbrester Drive'
+      country: 'Pres',
+      state: '2019-1',
+      city: 'Ing de Sistemas',
+      street: ''
     },
     avatarUrl: '/static/images/avatars/avatar_7.png',
     createdAt: 1554325200000,
-    email: 'ava.gregoraci@devias.io',
-    name: 'Ava Gregoraci',
-    phone: '415-907-2647'
+    email: 'ale.gr@univalle.edu.co',
+    name: 'Alejandra Graciano',
+    phone: '300-907-2647'
   },
   {
     id: uuid(),
     address: {
-      country: 'USA',
-      state: 'Nevada',
-      city: 'Las Vegas',
-      street: '1798  Hickory Ridge Drive'
+      country: 'Pres',
+      state: '2018-1',
+      city: 'Economía',
+      street: ''
     },
     avatarUrl: '/static/images/avatars/avatar_8.png',
     createdAt: 1523048400000,
-    email: 'emilee.simchenko@devias.io',
-    name: 'Emilee Simchenko',
-    phone: '702-661-1654'
+    email: 'emil.s@univalle.edu.co',
+    name: 'Emilio Samper',
+    phone: '301-661-1654'
   },
   {
     id: uuid(),
     address: {
-      country: 'USA',
-      state: 'Michigan',
-      city: 'Detroit',
-      street: '3934  Wildrose Lane'
+      country: 'Pres',
+      state: '2018-2',
+      city: 'Ing de Sistemas',
+      street: ''
     },
     avatarUrl: '/static/images/avatars/avatar_9.png',
     createdAt: 1554702800000,
-    email: 'kwak.seong.min@devias.io',
-    name: 'Kwak Seong-Min',
+    email: 'carl.san@univalle.edu.co',
+    name: 'Carlos Sanchez',
     phone: '313-812-8947'
   },
   {
     id: uuid(),
     address: {
-      country: 'USA',
-      state: 'Utah',
-      city: 'Salt Lake City',
-      street: '368 Lamberts Branch Road'
+      country: 'Pres',
+      state: '2019-1',
+      city: 'Ing de Sistemas',
+      street: ''
     },
     avatarUrl: '/static/images/avatars/avatar_10.png',
     createdAt: 1522702800000,
-    email: 'merrile.burgett@devias.io',
-    name: 'Merrile Burgett',
-    phone: '801-301-7894'
+    email: 'm.burg@univalle.edu.co',
+    name: 'Marian Burgos',
+    phone: '301-301-7894'
   }
 ];

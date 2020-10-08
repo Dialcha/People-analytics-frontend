@@ -94,19 +94,19 @@ const Results = ({ className, customers, ...rest }) => {
                   />
                 </TableCell>
                 <TableCell>
-                  Name
+                  Nombre
                 </TableCell>
                 <TableCell>
                   Email
                 </TableCell>
                 <TableCell>
-                  Location
+                  Carrera
                 </TableCell>
                 <TableCell>
-                  Phone
+                  Telefono
                 </TableCell>
                 <TableCell>
-                  Registration date
+                  Fecha de ingreso
                 </TableCell>
               </TableRow>
             </TableHead>
@@ -163,6 +163,7 @@ const Results = ({ className, customers, ...rest }) => {
       </PerfectScrollbar>
       <TablePagination
         component="div"
+        labelRowsPerPage="Filas por página"
         count={customers.length}
         onChangePage={handlePageChange}
         onChangeRowsPerPage={handleLimitChange}

@@ -29,9 +29,9 @@ const Toolbar = ({ className, ...rest }) => {
             <Typography
               color="textPrimary"
               gutterBottom
-              variant="h2"
+              variant="h4"
             >
-              Factores que están Influyendo en la deserción estudiantil
+              Distribución de factores de riesgo de deserción
             </Typography>
           </CardContent>
         </Card>

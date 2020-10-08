@@ -36,16 +36,16 @@ const Toolbar = ({ className, ...rest }) => {
         justifyContent="flex-end"
       >
         <Button className={classes.importButton}>
-          Import
+          Importar
         </Button>
         <Button className={classes.exportButton}>
-          Export
+          Exportar
         </Button>
         <Button
           color="primary"
           variant="contained"
         >
-          Add customer
+          Agregar Caso
         </Button>
       </Box>
       <Box mt={3}>
@@ -66,7 +66,7 @@ const Toolbar = ({ className, ...rest }) => {
                     </InputAdornment>
                   )
                 }}
-                placeholder="Search customer"
+                placeholder="Buscar Estudiante"
                 variant="outlined"
               />
             </Box>
