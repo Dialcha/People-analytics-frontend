@@ -11,6 +11,7 @@ import ProductListView from 'src/views/product/ProductListView';
 import RegisterView from 'src/views/auth/RegisterView';
 import SettingsView from 'src/views/settings/SettingsView';
 import Academic from 'src/views/reports/AcademicView';
+import UploadView from 'src/views/upload/UploadView'
 
 const routes = [
   {
@@ -19,6 +20,7 @@ const routes = [
     children: [
       { path: 'account', element: <AccountView /> },
       { path: 'customers', element: <CustomerListView /> },
+      { path: 'upload', element: <UploadView /> },
       { path: 'dashboard', element: <DashboardView /> },
       { path: 'dashboard/academic', element: <Academic /> },
       { path: 'products', element: <ProductListView /> },
