@@ -15,6 +15,8 @@ import {
 import {
   AlertCircle as AlertCircleIcon,
   BarChart as BarChartIcon,
+  UploadCloud as UploadCloudIcon,
+  DownloadCloud as DownloadCloudIcon,
   Lock as LockIcon,
   Settings as SettingsIcon,
   ShoppingBag as ShoppingBagIcon,
@@ -35,6 +37,16 @@ const items = [
     href: '/app/dashboard',
     icon: BarChartIcon,
     title: 'Tablero'
+  },
+  {
+    href: '/app/upload',
+    icon: UploadCloudIcon,
+    title: 'Cargar archivos'
+  },
+  {
+    href: '/app/download',
+    icon: DownloadCloudIcon,
+    title: 'Consultar predicciones'
   },
   {
     href: '/app/customers',
