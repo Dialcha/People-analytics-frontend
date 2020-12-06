@@ -28,7 +28,7 @@ import NavItem from './NavItem';
 
 const user = {
   avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Bienestar Universitario - Univalle',
+  jobTitle: 'Bienestar Universitario - UNIAJC',
   name: 'Katherine Jimenez'
 };
 

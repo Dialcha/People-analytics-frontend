@@ -17,8 +17,8 @@ import {
 
 const states = [
   {
-    value: 'udea',
-    label: 'Universidad de Antioquia'
+    value: 'uniajc',
+    label: 'IU Antonio José Camacho'
   },
   {
     value: 'univalle',
@@ -65,7 +65,7 @@ const Upload = ({ className, ...rest }) => {
         throw new Error('Secciona un archivo primero');
       }
       const formData = new FormData();
-      formData.append('image', values['archivo'][0]);
+      formData.append('data', values['archivo'][0]);
       await axios.post(`http://localhost:8080/api/v1/data-upload`, formData, {
         headers: {
           'enctype': 'multipart/form-data'
@@ -75,6 +75,12 @@ const Upload = ({ className, ...rest }) => {
           'Buen trabajo!',
           'Archivo para predicción cargado correctamente',
           'success'
+        )
+      }).catch(res => {
+        Swal.fire(
+          'error',
+          'error',
+          'warning'
         )
       });
       // handle success
