@@ -17,17 +17,17 @@ import {
 
 const states = [
   {
-    value: 'udea',
-    label: 'Universidad de Antioquia'
-  },
-  {
-    value: 'univalle',
-    label: 'Universidad del Valle'
-  },
-  {
-    value: 'icesi',
-    label: 'Universidad ICESI'
+    value: 'uniajc',
+    label: 'IU Antonio José Camacho'
   }
+  // {
+  //   value: 'univalle',
+  //   label: 'Universidad del Valle'
+  // },
+  // {
+  //   value: 'icesi',
+  //   label: 'Universidad ICESI'
+  // }
 ];
 
 const useStyles = makeStyles(() => ({
