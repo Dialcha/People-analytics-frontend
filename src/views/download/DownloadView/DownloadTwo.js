@@ -42,7 +42,7 @@ const DownloadTwo = ({ className, customers, ...rest }) => {
         'https://zey12u6qr8.execute-api.us-east-1.amazonaws.com/version-prueba',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: {
-        nombre_ies: 'udea'
+        nombre_ies: 'uniajc'
       }
     })
       .then(res => {

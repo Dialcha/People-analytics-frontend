@@ -66,7 +66,7 @@ const Upload = ({ className, ...rest }) => {
       }
       const formData = new FormData();
       formData.append('image', values['archivo'][0]);
-      await axios.post(`http://localhost:8080/api/v1/data-upload`, formData, {
+      await axios.post(`http://AntivirusBackend-env.eba-hfkhj7p2.us-east-2.elasticbeanstalk.com/api/v1/data-upload`, formData, {
         headers: {
           'enctype': 'multipart/form-data'
         }
