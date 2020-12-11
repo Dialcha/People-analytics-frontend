@@ -12,7 +12,6 @@ import {
   makeStyles
 } from '@material-ui/core';
 import {
-  BarChart as BarChartIcon,
   UploadCloud as UploadCloudIcon,
   DownloadCloud as DownloadCloudIcon,
   Lock as LockIcon,
@@ -27,11 +26,11 @@ const user = {
 };
 
 const items = [
-  {
-    href: '/app/dashboard',
-    icon: BarChartIcon,
-    title: 'Tablero'
-  },
+  // {
+  //   href: '/app/dashboard',
+  //   icon: BarChartIcon,
+  //   title: 'Tablero'
+  // },
   {
     href: '/app/upload',
     icon: UploadCloudIcon,
@@ -47,26 +46,11 @@ const items = [
     icon: UserIcon,
     title: 'Detalle Perfil'
   },
-  // {
-  //   href: '/app/settings',
-  //   icon: SettingsIcon,
-  //   title: 'Settings'
-  // },
   {
     href: '/login',
     icon: LockIcon,
     title: 'Login'
   },
-  // {
-  //   href: '/register',
-  //   icon: UserPlusIcon,
-  //   title: 'Register'
-  // },
-  // {
-  //   href: '/404',
-  //   icon: AlertCircleIcon,
-  //   title: 'Error'
-  // }
 ];
 
 const useStyles = makeStyles(() => ({

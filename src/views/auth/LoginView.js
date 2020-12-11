@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import {
@@ -49,7 +49,7 @@ const LoginView = () => {
                 .required('Password is required')
             })}
             onSubmit={() => {
-              navigate('/app/dashboard', { replace: true });
+              navigate('/app/upload', { replace: true });
             }}
           >
             {({
