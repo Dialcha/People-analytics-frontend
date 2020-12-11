@@ -13,9 +13,6 @@ import {
   makeStyles,
   useTheme
 } from '@material-ui/core';
-import LaptopMacIcon from '@material-ui/icons/CheckCircleOutline';
-import PhoneIcon from '@material-ui/icons/NotificationsNone';
-import TabletIcon from '@material-ui/icons/Warning';
 import FunctionsIcon from '@material-ui/icons/Functions';
 import ComputerIcon from '@material-ui/icons/Computer';
 import DeviceHubIcon from '@material-ui/icons/DeviceHub';

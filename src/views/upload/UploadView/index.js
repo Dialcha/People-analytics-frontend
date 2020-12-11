@@ -1,6 +1,5 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { Box, Container, makeStyles } from '@material-ui/core';
+import React from 'react';
+import { Container, makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
 import Upload from './Upload';
 

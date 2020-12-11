@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import { Box, Container, makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
-import DownloadResults from './DownloadResults';
 import DownloadTwo from './DownloadTwo';
 import data from './data';
-import data2 from './data2';
 
 const useStyles = makeStyles(theme => ({
   root: {

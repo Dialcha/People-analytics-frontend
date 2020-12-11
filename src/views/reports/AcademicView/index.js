@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid, makeStyles, Typography } from '@material-ui/core';
+import { Container, Grid, makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
 import Toolbar from './Toolbar';
 import GraficaMaterias from './GraficaMaterias';

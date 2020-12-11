@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { Bar, Radar } from 'react-chartjs-2';
+import { Radar } from 'react-chartjs-2';
 
 import {
   Box,
@@ -10,7 +10,6 @@ import {
   CardContent,
   CardHeader,
   Divider,
-  useTheme,
   makeStyles,
   colors
 } from '@material-ui/core';
@@ -23,7 +22,6 @@ const useStyles = makeStyles(() => ({
 
 const GraficaMaterias = ({ className, ...rest }) => {
   const classes = useStyles();
-  const theme = useTheme();
 
   const data = {
     datasets: [
