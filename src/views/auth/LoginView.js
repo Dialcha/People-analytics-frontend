@@ -11,6 +11,9 @@ import {
   makeStyles
 } from '@material-ui/core';
 import Page from 'src/components/Page';
+import LoginButton from '../../components/LoginButton';
+import LogoutButton from '../../components/LogoutButton';
+import Profile from '../../components/Profile';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,7 +36,12 @@ const LoginView = () => {
         height="100%"
         justifyContent="center"
       >
+        <div>
+          <Profile/>
+        </div>
         <Container maxWidth="sm">
+        <LoginButton/>
+        <LogoutButton/>
           <Formik
             initialValues={{
               email: 'demo@devias.io',
