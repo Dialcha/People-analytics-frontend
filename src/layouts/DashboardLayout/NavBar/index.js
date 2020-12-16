@@ -15,7 +15,7 @@ import {
   UploadCloud as UploadCloudIcon,
   DownloadCloud as DownloadCloudIcon,
   Lock as LockIcon,
-  User as UserIcon,
+  User as UserIcon
 } from 'react-feather';
 import NavItem from './NavItem';
 
@@ -31,6 +31,12 @@ const items = [
   //   icon: BarChartIcon,
   //   title: 'Tablero'
   // },
+
+  {
+    href: '/login',
+    icon: LockIcon,
+    title: 'Login'
+  },
   {
     href: '/app/upload',
     icon: UploadCloudIcon,
@@ -45,12 +51,7 @@ const items = [
     href: '/app/account',
     icon: UserIcon,
     title: 'Detalle Perfil'
-  },
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login'
-  },
+  }
 ];
 
 const useStyles = makeStyles(() => ({
@@ -81,41 +82,25 @@ const NavBar = ({ onMobileClose, openMobile }) => {
   }, [location.pathname]);
 
   const content = (
-    <Box
-      height="100%"
-      display="flex"
-      flexDirection="column"
-    >
-      <Box
-        alignItems="center"
-        display="flex"
-        flexDirection="column"
-        p={2}
-      >
+    <Box height="100%" display="flex" flexDirection="column">
+      <Box alignItems="center" display="flex" flexDirection="column" p={2}>
         <Avatar
           className={classes.avatar}
           component={RouterLink}
           src={user.avatar}
           to="/app/account"
         />
-        <Typography
-          className={classes.name}
-          color="textPrimary"
-          variant="h5"
-        >
+        <Typography className={classes.name} color="textPrimary" variant="h5">
           {user.name}
         </Typography>
-        <Typography
-          color="textSecondary"
-          variant="body2"
-        >
+        <Typography color="textSecondary" variant="body2">
           {user.jobTitle}
         </Typography>
       </Box>
       <Divider />
       <Box p={2}>
         <List>
-          {items.map((item) => (
+          {items.map(item => (
             <NavItem
               href={item.href}
               key={item.title}
@@ -126,7 +111,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         </List>
       </Box>
       <Box flexGrow={1} />
-       </Box>
+    </Box>
   );
 
   return (
