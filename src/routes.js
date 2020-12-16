@@ -12,6 +12,7 @@ import DownloadView from './views/download/DownloadView';
 const routes = [
   {
     path: '/',
+    exact: true,
     element: <MainLayout />,
     children: [
       { path: 'login', element: <LoginView /> },
