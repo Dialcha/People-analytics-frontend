@@ -3,6 +3,7 @@ import { Box, Container, makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
 import DownloadTwo from './DownloadTwo';
 import data from './data';
+import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,4 +29,6 @@ const DownloadView = () => {
   );
 };
 
-export default DownloadView;
+export default withAuthenticationRequired(DownloadView, {
+  onRedirecting: () => <h3>Cargando</h3>,
+});
