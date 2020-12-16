@@ -6,7 +6,7 @@ import GlobalStyles from 'src/components/GlobalStyles';
 import 'src/mixins/chartjs';
 import theme from 'src/theme';
 import routes from 'src/routes';
-import { useAuth0, isAuthenticated } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const App = () => {
   const routing = useRoutes(routes);
