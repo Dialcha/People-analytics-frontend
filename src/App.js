@@ -30,7 +30,6 @@ const App = () => {
       element: <MainLayout />,
       children: [
         { path: 'login', element: <LoginView /> },
-        // { path: 'register', element: <RegisterView /> },
         { path: '404', element: <NotFoundView /> },
         { path: '/', element: isAuthenticated ? <Navigate to="/app/upload" /> : <Navigate to="/login" /> },
         { path: '*', element: <Navigate to="/404" /> }

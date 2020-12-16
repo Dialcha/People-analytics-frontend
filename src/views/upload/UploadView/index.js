@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, makeStyles } from '@material-ui/core';
 import Page from 'src/components/Page';
 import Upload from './Upload';
+import { withAuthenticationRequired } from "@auth0/auth0-react";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,4 +27,6 @@ function UploadView() {
   );
 }
 
-export default UploadView;
+export default withAuthenticationRequired(UploadView, {
+  onRedirecting: () => <h3>Cargando</h3>,
+});

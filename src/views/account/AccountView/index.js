@@ -7,6 +7,8 @@ import {
 import Page from 'src/components/Page';
 import Profile from './Profile';
 import ProfileDetails from './ProfileDetails';
+import { withAuthenticationRequired } from "@auth0/auth0-react";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -52,4 +54,7 @@ const Account = () => {
   );
 };
 
-export default Account;
+
+export default withAuthenticationRequired(Account, {
+  onRedirecting: () => <h3>Cargando</h3>,
+});
