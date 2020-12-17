@@ -16,10 +16,12 @@ const onRedirectCallback = (appState) => {
 
 ReactDOM.render(
   <Auth0Provider
+
     domain={config.domain}
     clientId={config.clientId}
     audience={config.audience}
     scope="read:current_user update:current_user_metadata"
+
     redirectUri={window.location.origin}
     onRedirectCallback={onRedirectCallback}
   >

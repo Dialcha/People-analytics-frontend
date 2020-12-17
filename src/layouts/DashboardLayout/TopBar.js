@@ -41,13 +41,10 @@ const TopBar = ({ className, onMobileNavOpen, ...rest }) => {
           <IconButton color="inherit" onClick={() => logout({ returnTo: window.location.origin })}>
             <InputIcon />
           </IconButton>
-          <IconButton color="inherit" onClick={() => loginWithRedirect()}>
-            <VpnKeyIcon />
-          </IconButton>
         </Hidden>
         <Hidden lgUp>
-          <IconButton color="inherit" onClick={onMobileNavOpen}>
-            <MenuIcon />
+          <IconButton color="inherit" onClick={() => logout({ returnTo: window.location.origin })}>
+            <InputIcon />
           </IconButton>
         </Hidden>
 
