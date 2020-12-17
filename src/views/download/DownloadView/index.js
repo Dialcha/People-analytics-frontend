@@ -5,7 +5,6 @@ import DownloadTwo from './DownloadTwo';
 import data from './data';
 
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-import config from 'src/auth_config.json';
 
 const useStyles = makeStyles(theme => ({
   root: {

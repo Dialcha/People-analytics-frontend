@@ -20,7 +20,6 @@ import {
 import NavItem from './NavItem';
 
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-import config from 'src/auth_config.json';
 
 const items = [
   {
