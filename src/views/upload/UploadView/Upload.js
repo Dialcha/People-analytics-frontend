@@ -130,6 +130,7 @@ const Upload = ({ className, ...rest }) => {
         const formData = new FormData();
         formData.append('bucketName', prefix_u);
         formData.append('data', values['archivo'][0]);
+        console.log('el archivo: ',values['archivo'][0]);
         await axios.post('http://localhost:8080/api/v1/data-upload', formData, {
           headers: {
             'enctype': 'multipart/form-data'
@@ -172,23 +173,19 @@ const Upload = ({ className, ...rest }) => {
         <CardContent>
           <Grid container spacing={3}>
             <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                label="Seleccione universidad"
-                name="universidad"
-                onChange={handleChange}
-                required
-                select
-                SelectProps={{ native: true }}
-                value={values.universidad}
-                variant="outlined"
-              >
-                {states.map(option => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </TextField>
+              
+                
+              <label htmlFor="contained-button-file">
+                
+                {values.archivo ? values.label : 'sdsds'}
+               
+              </label> 
+                
+                  
+                
+                
+                
+              
             </Grid>
 
             <Grid item md={6} xs={12}>

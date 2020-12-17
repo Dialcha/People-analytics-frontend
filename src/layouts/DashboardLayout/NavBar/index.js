@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
@@ -19,11 +19,8 @@ import {
 } from 'react-feather';
 import NavItem from './NavItem';
 
-const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Bienestar Universitario - UNIAJC',
-  name: 'Katherine Jimenez'
-};
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import config from 'src/auth_config.json';
 
 const items = [
   // {
@@ -74,6 +71,53 @@ const NavBar = ({ onMobileClose, openMobile }) => {
   const classes = useStyles();
   const location = useLocation();
 
+  //prueba dinamica
+
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+
+
+
+  const [userMetadata, setUserMetadata] = useState(null);
+
+
+  useEffect(() => {
+    const getUserMetadata = async () => {
+      const domain = config.domain;
+
+      try {
+        const accessToken = await getAccessTokenSilently({
+          audience: `https://${domain}/api/v2/`,
+          scope: "read:current_user",
+        });
+
+        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
+
+        const metadataResponse = await fetch(userDetailsByIdUrl, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+
+        const { user_metadata } = await metadataResponse.json();
+
+        setUserMetadata(user_metadata);
+      } catch (e) {
+        console.log(e.message);
+      }
+    };
+
+    getUserMetadata();
+  }, []);
+
+ 
+  //
+
+
+
+
+
+
+  //
   useEffect(() => {
     if (openMobile && onMobileClose) {
       onMobileClose();
@@ -81,20 +125,22 @@ const NavBar = ({ onMobileClose, openMobile }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
 
+
+
   const content = (
     <Box height="100%" display="flex" flexDirection="column">
       <Box alignItems="center" display="flex" flexDirection="column" p={2}>
         <Avatar
           className={classes.avatar}
           component={RouterLink}
-          src={user.avatar}
+          src={user.picture}
           to="/app/account"
         />
         <Typography className={classes.name} color="textPrimary" variant="h5">
           {user.name}
         </Typography>
         <Typography color="textSecondary" variant="body2">
-          {user.jobTitle}
+          {user.email}
         </Typography>
       </Box>
       <Divider />
