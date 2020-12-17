@@ -23,17 +23,6 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import config from 'src/auth_config.json';
 
 const items = [
-  // {
-  //   href: '/app/dashboard',
-  //   icon: BarChartIcon,
-  //   title: 'Tablero'
-  // },
-
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login'
-  },
   {
     href: '/app/upload',
     icon: UploadCloudIcon,
@@ -109,25 +98,14 @@ const NavBar = ({ onMobileClose, openMobile }) => {
     getUserMetadata();
   }, []);
 
- 
-  //
-
-
-
-
-
-
-  //
   useEffect(() => {
     if (openMobile && onMobileClose) {
       onMobileClose();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
+  
 
-
-
-  const content = (
+  const content = isAuthenticated ? (
     <Box height="100%" display="flex" flexDirection="column">
       <Box alignItems="center" display="flex" flexDirection="column" p={2}>
         <Avatar
@@ -158,7 +136,8 @@ const NavBar = ({ onMobileClose, openMobile }) => {
       </Box>
       <Box flexGrow={1} />
     </Box>
-  );
+  ) : (<h1>No autenticado</h1>)
+
 
   return (
     <>
@@ -170,7 +149,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
           open={openMobile}
           variant="temporary"
         >
-          {content}
+          { content }
         </Drawer>
       </Hidden>
       <Hidden mdDown>
