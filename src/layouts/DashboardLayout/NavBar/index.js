@@ -27,9 +27,9 @@ import {
 import NavItem from './NavItem';
 
 const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Bienestar Universitario - UNIAJC',
-  name: 'Katherine Jimenez'
+  avatar: 'https://www.usbcali.edu.co/sites/default/files/logo-pw-usb_0.png',
+  jobTitle: 'Bienestar Universitario - USB',
+  name: 'Universidad San Buenaventura'
 };
 
 const items = [

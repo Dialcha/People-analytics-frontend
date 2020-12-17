@@ -17,8 +17,8 @@ import {
 
 const states = [
   {
-    value: 'uniajc',
-    label: 'IU Antonio José Camacho'
+    value: 'usb',
+    label: 'Universidad San Buenaventura'
   }
   // {
   //   value: 'univalle',
@@ -40,7 +40,7 @@ const useStyles = makeStyles(() => ({
 const Upload = ({ className, ...rest }) => {
   const classes = useStyles();
   const [values, setValues] = useState({
-    universidad: 'udea',
+    universidad: 'usbcali',
     archivo: null
   });
 
@@ -65,7 +65,7 @@ const Upload = ({ className, ...rest }) => {
         throw new Error('Secciona un archivo primero');
       }
       const formData = new FormData();
-      formData.append('bucketName', 'uniajc');
+      formData.append('bucketName', 'usbcali');
       formData.append('data', values['archivo'][0]);
       await axios.post(`http://ApiPeopleAnalyticsDev-env.eba-v39ukvyc.us-east-2.elasticbeanstalk.com/api/v1/data-upload`, formData, {
         headers: {
