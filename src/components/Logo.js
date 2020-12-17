@@ -1,10 +1,10 @@
 import React from 'react';
-
+import logo from '../assets/logo.png';
 const Logo = (props) => {
   return (
     <img
       alt="Logo"
-      src="http://www.uniajc.edu.co/wp-content/uploads/2016/11/logo-home.png"
+      src={logo}
       height="42"
       width="70"
       {...props}

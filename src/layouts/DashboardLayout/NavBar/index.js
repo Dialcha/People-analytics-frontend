@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Avatar,
   Box,
-  Button,
   Divider,
   Drawer,
   Hidden,
@@ -13,31 +12,17 @@ import {
   makeStyles
 } from '@material-ui/core';
 import {
-  AlertCircle as AlertCircleIcon,
-  BarChart as BarChartIcon,
   UploadCloud as UploadCloudIcon,
   DownloadCloud as DownloadCloudIcon,
   Lock as LockIcon,
-  Settings as SettingsIcon,
-  ShoppingBag as ShoppingBagIcon,
-  User as UserIcon,
-  UserPlus as UserPlusIcon,
-  Users as UsersIcon
+  User as UserIcon
 } from 'react-feather';
 import NavItem from './NavItem';
 
-const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Bienestar Universitario - UNIAJC',
-  name: 'Katherine Jimenez'
-};
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import config from 'src/auth_config.json';
 
 const items = [
-  {
-    href: '/app/dashboard',
-    icon: BarChartIcon,
-    title: 'Tablero'
-  },
   {
     href: '/app/upload',
     icon: UploadCloudIcon,
@@ -49,40 +34,10 @@ const items = [
     title: 'Consultar predicciones'
   },
   {
-    href: '/app/customers',
-    icon: UsersIcon,
-    title: 'Estudiantes'
-  },
-  {
-    href: '/app/products',
-    icon: ShoppingBagIcon,
-    title: 'Estrategias'
-  },
-  {
     href: '/app/account',
     icon: UserIcon,
     title: 'Detalle Perfil'
-  },
-  // {
-  //   href: '/app/settings',
-  //   icon: SettingsIcon,
-  //   title: 'Settings'
-  // },
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login'
-  },
-  // {
-  //   href: '/register',
-  //   icon: UserPlusIcon,
-  //   title: 'Register'
-  // },
-  // {
-  //   href: '/404',
-  //   icon: AlertCircleIcon,
-  //   title: 'Error'
-  // }
+  }
 ];
 
 const useStyles = makeStyles(() => ({
@@ -105,49 +60,71 @@ const NavBar = ({ onMobileClose, openMobile }) => {
   const classes = useStyles();
   const location = useLocation();
 
+  //prueba dinamica
+
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+
+
+
+  const [userMetadata, setUserMetadata] = useState(null);
+
+
+  useEffect(() => {
+    const getUserMetadata = async () => {
+      const domain = process.env.REACT_APP_DOMAIN;
+
+      try {
+        const accessToken = await getAccessTokenSilently({
+          audience: `https://${domain}/api/v2/`,
+          scope: "read:current_user",
+        });
+
+        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
+
+        const metadataResponse = await fetch(userDetailsByIdUrl, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+
+        const { user_metadata } = await metadataResponse.json();
+
+        setUserMetadata(user_metadata);
+      } catch (e) {
+        console.log(e.message);
+      }
+    };
+
+    getUserMetadata();
+  }, []);
+
   useEffect(() => {
     if (openMobile && onMobileClose) {
       onMobileClose();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname]);
+  
 
-  const content = (
-    <Box
-      height="100%"
-      display="flex"
-      flexDirection="column"
-    >
-      <Box
-        alignItems="center"
-        display="flex"
-        flexDirection="column"
-        p={2}
-      >
+  const content = isAuthenticated ? (
+    <Box height="100%" display="flex" flexDirection="column">
+      <Box alignItems="center" display="flex" flexDirection="column" p={2}>
         <Avatar
           className={classes.avatar}
           component={RouterLink}
-          src={user.avatar}
+          src={user.picture}
           to="/app/account"
         />
-        <Typography
-          className={classes.name}
-          color="textPrimary"
-          variant="h5"
-        >
+        <Typography className={classes.name} color="textPrimary" variant="h5">
           {user.name}
         </Typography>
-        <Typography
-          color="textSecondary"
-          variant="body2"
-        >
-          {user.jobTitle}
+        <Typography color="textSecondary" variant="body2">
+          {user.email}
         </Typography>
       </Box>
       <Divider />
       <Box p={2}>
         <List>
-          {items.map((item) => (
+          {items.map(item => (
             <NavItem
               href={item.href}
               key={item.title}
@@ -158,8 +135,9 @@ const NavBar = ({ onMobileClose, openMobile }) => {
         </List>
       </Box>
       <Box flexGrow={1} />
-       </Box>
-  );
+    </Box>
+  ) : (<h1>No autenticado</h1>)
+
 
   return (
     <>
@@ -171,7 +149,7 @@ const NavBar = ({ onMobileClose, openMobile }) => {
           open={openMobile}
           variant="temporary"
         >
-          {content}
+          { content }
         </Drawer>
       </Hidden>
       <Hidden mdDown>

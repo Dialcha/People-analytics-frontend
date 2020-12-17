@@ -21,6 +21,8 @@ import {
   Divider
 } from '@material-ui/core';
 
+
+
 const useStyles = makeStyles(theme => ({
   root: {},
   avatar: {
@@ -28,21 +30,26 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const DownloadTwo = ({ className, customers, ...rest }) => {
+const DownloadTwo = ({ className, customers, prefi, ...rest }) => {
+  console.log('el prefix enviado', prefi)
   const classes = useStyles();
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
 
   let [responseData, setResponseData] = useState('');
 
+  
+
+
   const fetchData = async () => {
+    
     await axios({
       method: 'post',
       url:
         'https://zey12u6qr8.execute-api.us-east-1.amazonaws.com/version-prueba',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: {
-        nombre_ies: 'uniajc'
+        nombre_ies: prefi
       }
     })
       .then(res => {
@@ -78,65 +85,65 @@ const DownloadTwo = ({ className, customers, ...rest }) => {
           </CardContent>
         </>
       ) : (
-        <>
-          <CardHeader
-            subheader="Estos son los reportes de predicciones que su institución ha generado."
-            title="Reportes"
-          />
-          <Divider />
-          <CardContent>
-            <PerfectScrollbar>
-              <Box minWidth={1050}>
-                <Table>
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Archivo</TableCell>
-                      <TableCell>Link de descarga</TableCell>
-                      <TableCell>Fecha de generación de reporte</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {responseData.slice(0, limit).map(link => (
-                      <TableRow hover key={link.date}>
-                        <TableCell>
-                          <Box alignItems="center" display="flex">
-                            <Typography color="textPrimary" variant="body1">
-                              {link.file_name}
-                            </Typography>
-                          </Box>
-                        </TableCell>
-                        <TableCell>
-                          <Box alignItems="center" display="flex">
-                            <Typography color="textPrimary" variant="body1">
-                              <Link href={link.url}>Descargar</Link>
-                            </Typography>
-                          </Box>
-                        </TableCell>
-                        <TableCell>
-                          <Box alignItems="center" display="flex">
-                            <Typography color="textPrimary" variant="body1">
-                              {link.date}
-                            </Typography>
-                          </Box>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </Box>
-            </PerfectScrollbar>
-            <TablePagination
-              component="div"
-              count={responseData.length}
-              onChangePage={handlePageChange}
-              onChangeRowsPerPage={handleLimitChange}
-              page={page}
-              rowsPerPage={limit}
-              rowsPerPageOptions={[5, 10, 25]}
+          <>
+            <CardHeader
+              subheader="Estos son los reportes de predicciones que su institución ha generado."
+              title="Reportes"
             />
-          </CardContent>
-        </>
-      )}
+            <Divider />
+            <CardContent>
+              <PerfectScrollbar>
+                <Box minWidth={1050}>
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Archivo</TableCell>
+                        <TableCell>Link de descarga</TableCell>
+                        <TableCell>Fecha de generación de reporte</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {responseData.slice(0, limit).map(link => (
+                        <TableRow hover key={link.date}>
+                          <TableCell>
+                            <Box alignItems="center" display="flex">
+                              <Typography color="textPrimary" variant="body1">
+                                {link.file_name}
+                              </Typography>
+                            </Box>
+                          </TableCell>
+                          <TableCell>
+                            <Box alignItems="center" display="flex">
+                              <Typography color="textPrimary" variant="body1">
+                                <Link href={link.url}>Descargar</Link>
+                              </Typography>
+                            </Box>
+                          </TableCell>
+                          <TableCell>
+                            <Box alignItems="center" display="flex">
+                              <Typography color="textPrimary" variant="body1">
+                                {link.date}
+                              </Typography>
+                            </Box>
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </Box>
+              </PerfectScrollbar>
+              <TablePagination
+                component="div"
+                count={responseData.length}
+                onChangePage={handlePageChange}
+                onChangeRowsPerPage={handleLimitChange}
+                page={page}
+                rowsPerPage={limit}
+                rowsPerPageOptions={[5, 10, 25]}
+              />
+            </CardContent>
+          </>
+        )}
     </Card>
   );
 };
