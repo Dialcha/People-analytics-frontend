@@ -34,7 +34,7 @@ const DownloadView = () => {
 
   useEffect(() => {
     const getUserMetadata = async () => {
-      const domain = config.domain;
+      const domain = process.env.REACT_APP_DOMAIN;
 
       try {
         const accessToken = await getAccessTokenSilently({
