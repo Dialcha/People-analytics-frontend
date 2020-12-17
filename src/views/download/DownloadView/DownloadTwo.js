@@ -39,7 +39,7 @@ const DownloadTwo = ({ className, customers, ...rest }) => {
     await axios({
       method: 'post',
       url:
-        'https://zey12u6qr8.execute-api.us-east-1.amazonaws.com/version-prueba',
+        'TestParaLaUsb-env.eba-pqgnmmig.us-east-2.elasticbeanstalk.com/version-prueba',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: {
         nombre_ies: 'usbcali'
