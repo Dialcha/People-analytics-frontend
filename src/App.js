@@ -40,8 +40,8 @@ const App = () => {
       element: <DashboardLayout />,
       children: [
         { path: 'account', element: <AccountView /> },
-        { path: 'upload', element: <UploadView/>  },
-        { path: 'download', element: <DownloadView />},
+        { path: 'upload', element: <UploadView/> },
+        { path: 'download', element: <DownloadView /> },
         { path: '*', element: <Navigate to="/404" /> }
       ]
     },
@@ -50,7 +50,7 @@ const App = () => {
   const routing = useRoutes(routes);
 
   if (error) {
-    return <div>Oops... {error.message}</div>;
+    return <div>Oops...{error.message}</div>;
   }
 
   if (isLoading) {

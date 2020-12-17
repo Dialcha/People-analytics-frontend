@@ -10,6 +10,7 @@ import {
 } from '@material-ui/core';
 import Page from 'src/components/Page';
 import { useAuth0 } from '@auth0/auth0-react';
+import { backgroundvideo } from '../../assets/videobackground.mp4';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     height: '100%',
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
-  }
+  },
 }));
 
 const LoginView = () => {
@@ -26,14 +27,18 @@ const LoginView = () => {
   const navigate = useNavigate();
 
   return (
+    
     <Page className={classes.root} title="Login">
+      
       <Box
         display="flex"
         flexDirection="column"
         height="100%"
         justifyContent="center"
       >
+        
         <Container maxWidth="sm">
+          
           <Box mb={3}>
             <Typography color="textPrimary" variant="h2">
               Bienvenido

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import {
@@ -14,6 +14,9 @@ import {
   TextField,
   makeStyles
 } from '@material-ui/core';
+
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import config from 'src/auth_config.json';
 
 const states = [
   {
@@ -38,6 +41,61 @@ const useStyles = makeStyles(() => ({
 }));
 
 const Upload = ({ className, ...rest }) => {
+
+  //Obtener metadata
+
+  const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
+
+  //
+  let prefix_u = '';
+  const [userMetadata, setUserMetadata] = useState(null);
+
+  if (userMetadata) {
+    prefix_u = userMetadata.u_prefix;
+    console.log('prueba adentro prefix_u: ', prefix_u);
+  }
+
+  useEffect(() => {
+    const getUserMetadata = async () => {
+      const domain = config.domain;
+
+      try {
+        const accessToken = await getAccessTokenSilently({
+          audience: `https://${domain}/api/v2/`,
+          scope: "read:current_user",
+        });
+
+        const userDetailsByIdUrl = `https://${domain}/api/v2/users/${user.sub}`;
+
+        const metadataResponse = await fetch(userDetailsByIdUrl, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+
+        const { user_metadata } = await metadataResponse.json();
+
+        setUserMetadata(user_metadata);
+      } catch (e) {
+        console.log(e.message);
+      }
+    };
+
+    getUserMetadata();
+  }, []);
+
+
+
+  //
+  if (userMetadata) {
+    console.log('prueba: ', JSON.stringify(userMetadata.u_prefix, null, 2));
+
+  }
+
+  console.log('uuser: ', user)
+
+
+  //
   const classes = useStyles();
   const [values, setValues] = useState({
     universidad: 'udea',
@@ -64,24 +122,37 @@ const Upload = ({ className, ...rest }) => {
       if (!values['archivo']) {
         throw new Error('Secciona un archivo primero');
       }
-      const formData = new FormData();
-      formData.append('data', values['archivo'][0]);
-      await axios.post(`http://ApiPeopleAnalyticsDev-env.eba-v39ukvyc.us-east-2.elasticbeanstalk.com/api/v1/data-upload`, formData, {
-        headers: {
-          'enctype': 'multipart/form-data'
-        }
-      }).then(res => {
-        Swal.fire(
-          'Buen trabajo!',
-          'Archivo para predicción cargado correctamente',
-          'success'
-        )
-      });
+      //
+      if (prefix_u.length > 0 && userMetadata) {
+        console.log('prueba adentro para enviar a bucket: ', userMetadata.u_prefix);
+
+
+        const formData = new FormData();
+        formData.append('bucketName', prefix_u);
+        formData.append('data', values['archivo'][0]);
+        await axios.post('http://localhost:8080/api/v1/data-upload', formData, {
+          headers: {
+            'enctype': 'multipart/form-data'
+          }
+        }).then(res => {
+          Swal.fire(
+            'Buen trabajo!',
+            'Archivo para predicción cargado correctamente',
+            'success'
+          )
+        });
+
+      }
+
+      //
+
+
       // handle success
     } catch (error) {
       // handle error
     }
   };
+
 
   return (
     <form
