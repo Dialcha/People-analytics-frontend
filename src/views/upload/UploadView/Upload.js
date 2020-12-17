@@ -67,7 +67,7 @@ const Upload = ({ className, ...rest }) => {
       const formData = new FormData();
       formData.append('bucketName', 'usbcali');
       formData.append('data', values['archivo'][0]);
-      await axios.post(`http://ApiPeopleAnalyticsDev-env.eba-v39ukvyc.us-east-2.elasticbeanstalk.com/api/v1/data-upload`, formData, {
+      await axios.post(`http://TestParaLaUsb-env.eba-pqgnmmig.us-east-2.elasticbeanstalk.com/api/v1/data-upload`, formData, {
         headers: {
           'enctype': 'multipart/form-data'
         }
