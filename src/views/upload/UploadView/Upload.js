@@ -17,17 +17,17 @@ import {
 
 const states = [
   {
-    value: 'udea',
-    label: 'Universidad de Antioquia'
-  },
-  {
-    value: 'univalle',
-    label: 'Universidad del Valle'
-  },
-  {
-    value: 'icesi',
-    label: 'Universidad ICESI'
+    value: 'uniajc',
+    label: 'IU Antonio José Camacho'
   }
+  // {
+  //   value: 'univalle',
+  //   label: 'Universidad del Valle'
+  // },
+  // {
+  //   value: 'icesi',
+  //   label: 'Universidad ICESI'
+  // }
 ];
 
 const useStyles = makeStyles(() => ({
@@ -65,6 +65,7 @@ const Upload = ({ className, ...rest }) => {
         throw new Error('Secciona un archivo primero');
       }
       const formData = new FormData();
+      formData.append('bucketName', 'uniajc');
       formData.append('data', values['archivo'][0]);
       await axios.post(`http://ApiPeopleAnalyticsDev-env.eba-v39ukvyc.us-east-2.elasticbeanstalk.com/api/v1/data-upload`, formData, {
         headers: {
