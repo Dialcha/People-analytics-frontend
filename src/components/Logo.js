@@ -4,9 +4,9 @@ const Logo = (props) => {
   return (
     <img
       alt="Logo"
-      src="http://www.uniajc.edu.co/wp-content/uploads/2016/11/logo-home.png"
+      src="https://ruav.edu.co/wp-content/uploads/2017/07/logo_Glow.png"
       height="42"
-      width="70"
+      width="170"
       {...props}
       
     />

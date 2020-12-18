@@ -27,9 +27,9 @@ import {
 import NavItem from './NavItem';
 
 const user = {
-  avatar: '/static/images/avatars/avatar_6.png',
-  jobTitle: 'Bienestar Universitario - UNIAJC',
-  name: 'Katherine Jimenez'
+  avatar: 'https://pbs.twimg.com/profile_images/677891565189275652/11bYEfjz_400x400.png',
+  jobTitle: 'RUAV',
+  name: 'Bienestar Universitario'
 };
 
 const items = [
@@ -42,22 +42,7 @@ const items = [
     href: '/app/download',
     icon: DownloadCloudIcon,
     title: 'Consultar predicciones'
-  },
-  {
-    href: '/login',
-    icon: LockIcon,
-    title: 'Login'
-  },
-  // {
-  //   href: '/register',
-  //   icon: UserPlusIcon,
-  //   title: 'Register'
-  // },
-  // {
-  //   href: '/404',
-  //   icon: AlertCircleIcon,
-  //   title: 'Error'
-  // }
+  }
 ];
 
 const useStyles = makeStyles(() => ({

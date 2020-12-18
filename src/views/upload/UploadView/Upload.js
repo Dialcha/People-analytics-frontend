@@ -12,22 +12,19 @@ import {
   Divider,
   Grid,
   TextField,
-  makeStyles
+  makeStyles,
+  Typography
 } from '@material-ui/core';
 
 const states = [
   {
     value: 'uniajc',
     label: 'IU Antonio José Camacho'
-  }
-  // {
-  //   value: 'univalle',
-  //   label: 'Universidad del Valle'
-  // },
-  // {
-  //   value: 'icesi',
-  //   label: 'Universidad ICESI'
-  // }
+  },
+  {
+    value: 'usbcali',
+    label: 'Universidad San Buenaventura - Cali'
+  },
 ];
 
 const useStyles = makeStyles(() => ({
@@ -40,7 +37,7 @@ const useStyles = makeStyles(() => ({
 const Upload = ({ className, ...rest }) => {
   const classes = useStyles();
   const [values, setValues] = useState({
-    universidad: 'udea',
+    universidad: states[0].value,
     archivo: null
   });
 
@@ -65,7 +62,7 @@ const Upload = ({ className, ...rest }) => {
         throw new Error('Secciona un archivo primero');
       }
       const formData = new FormData();
-      formData.append('bucketName', 'uniajc');
+      formData.append('bucketName', values.universidad);
       formData.append('data', values['archivo'][0]);
       await axios.post(`http://ApiPeopleAnalyticsDev-env.eba-v39ukvyc.us-east-2.elasticbeanstalk.com/api/v1/data-upload`, formData, {
         headers: {
@@ -78,9 +75,12 @@ const Upload = ({ className, ...rest }) => {
           'success'
         )
       });
-      // handle success
     } catch (error) {
-      // handle error
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Algo salió mal!'
+      })
     }
   };
 
@@ -101,7 +101,7 @@ const Upload = ({ className, ...rest }) => {
         <Divider />
         <CardContent>
           <Grid container spacing={3}>
-            <Grid item md={6} xs={12}>
+            <Grid item md={4} xs={12}>
               <TextField
                 fullWidth
                 label="Seleccione universidad"
@@ -121,7 +121,7 @@ const Upload = ({ className, ...rest }) => {
               </TextField>
             </Grid>
 
-            <Grid item md={6} xs={12}>
+            <Grid item md={4} xs={12}>
               <input
                 required
                 accept=".csv"
@@ -138,6 +138,20 @@ const Upload = ({ className, ...rest }) => {
                 </Button>
               </label>
             </Grid>
+
+            <Grid item md={4} xs={12}>
+              {values['archivo'] === null ? (
+                <Typography color="textPrimary" variant="body1">
+                  No ha seleccionado ningún archivo
+                </Typography>
+              ) : (
+                <Typography color="textPrimary" variant="body1">
+                  Archivo a cargar: {values['archivo'][0].name}
+                </Typography>
+              )}
+            </Grid>
+
+
           </Grid>
         </CardContent>
         <Divider />

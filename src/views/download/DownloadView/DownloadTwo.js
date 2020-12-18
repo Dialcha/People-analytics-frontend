@@ -18,8 +18,22 @@ import {
   LinearProgress,
   CardHeader,
   CardContent,
-  Divider
+  Divider,
+  Grid,
+  TextField,
+  Button,
 } from '@material-ui/core';
+
+const states = [
+  {
+    value: 'uniajc',
+    label: 'IU Antonio José Camacho'
+  },
+  {
+    value: 'usbcali',
+    label: 'Universidad San Buenaventura - Cali'
+  },
+];
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -30,19 +44,33 @@ const useStyles = makeStyles(theme => ({
 
 const DownloadTwo = ({ className, customers, ...rest }) => {
   const classes = useStyles();
+  // paginación
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(0);
 
+  const [values, setValues] = useState({
+    bucketUni: 'uniajc',
+  });
+
+  const [bucketName, setBucketName] = useState(states[0].value)
+
+  const handleChange = event => {
+    console.log(event.target.value)
+    setBucketName(event.target.value)
+    console.log('estado: ', bucketName)
+  };
+
   let [responseData, setResponseData] = useState('');
 
-  const fetchData = async () => {
+  const fetchData = async (bucket) => {
+    setResponseData('')
     await axios({
       method: 'post',
       url:
         'https://zey12u6qr8.execute-api.us-east-1.amazonaws.com/version-prueba',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       data: {
-        nombre_ies: 'uniajc'
+        nombre_ies: bucket
       }
     })
       .then(res => {
@@ -52,8 +80,8 @@ const DownloadTwo = ({ className, customers, ...rest }) => {
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData(bucketName);
+  }, [bucketName]);
 
   const handleLimitChange = event => {
     setLimit(event.target.value);
@@ -64,6 +92,38 @@ const DownloadTwo = ({ className, customers, ...rest }) => {
   };
 
   return (
+    <div>
+      <Card>
+        <CardHeader
+          title="Consulta de predicciones"
+        />
+        <Divider />
+        <CardContent>
+          <Grid container spacing={3}>
+            <Grid item md={4} xs={12}>
+              <TextField
+                fullWidth
+                label="Seleccione universidad"
+                name="universidad"
+                onChange={handleChange}
+                required
+                select
+                SelectProps={{ native: true }}
+                value={bucketName}
+                variant="outlined"
+              >
+                {states.map(option => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </TextField>
+            </Grid>
+
+          </Grid>
+        </CardContent>
+      </Card>
+      <br></br>
     <Card className={clsx(classes.root, className)} {...rest}>
       {responseData === '' ? (
         <>
@@ -138,6 +198,7 @@ const DownloadTwo = ({ className, customers, ...rest }) => {
         </>
       )}
     </Card>
+    </div>
   );
 };
 
